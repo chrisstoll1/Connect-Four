@@ -103,7 +103,7 @@ function tallyPoints(boxIndexes, checkArray){
 
 async function searchDirection(index, direction, temp, boxIndexes, searchIndexes){
     searchIndexes.push(index);
-    // 6, 1
+    // 6, 1 Janky fix for issue with the match going out of bounds
     if (((direction === 6 || direction === -6) || (direction === 1 || direction === -1)) && (index === 0 || index === 7 || index === 14 || index === 21 || index === 28 || index === 35 ||index === 6 || index === 13 || index === 20 || index === 27 || index === 34 || index === 41)){
         //pass
     }else{
