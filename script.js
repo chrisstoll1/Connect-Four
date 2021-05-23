@@ -68,9 +68,9 @@ function columnClicked(col) {
             board[boxIndex].color = "red";
             colorFlag = true;
         }
+        checkForWinner();
+        generateBoardHTML();
     }
-    checkForWinner();
-    generateBoardHTML();
 }
 
 function checkForWinner() {
