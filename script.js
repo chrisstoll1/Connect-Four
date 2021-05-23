@@ -103,15 +103,20 @@ function tallyPoints(boxIndexes, checkArray){
 
 async function searchDirection(index, direction, temp, boxIndexes, searchIndexes){
     searchIndexes.push(index);
-    var search = index + direction;
-    var p = temp;
-    if (boxIndexes.includes(search)){
-        p = p + 1;
-        await searchDirection(search, direction, p, boxIndexes, searchIndexes);
-        if (p === 4 && !winner){
-            console.log(`Winner! Points: ${p} Direction: ${direction} Search Indexes: ${searchIndexes}`);
-            winner = true;
-            win(searchIndexes);
+    // 6, 1
+    if (((direction === 6 || direction === -6) || (direction === 1 || direction === -1)) && (index === 0 || index === 7 || index === 14 || index === 21 || index === 28 || index === 35 ||index === 6 || index === 13 || index === 20 || index === 27 || index === 34 || index === 41)){
+        //pass
+    }else{
+        var search = index + direction;
+        var p = temp;
+        if (boxIndexes.includes(search)){
+            p = p + 1;
+            await searchDirection(search, direction, p, boxIndexes, searchIndexes);
+            if (p === 4 && !winner){
+                console.log(`Winner! Points: ${p} Direction: ${direction} Search Indexes: ${searchIndexes}`);
+                winner = true;
+                win(searchIndexes);
+            }
         }
     }
 }
