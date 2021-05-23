@@ -39,7 +39,7 @@ function generateBoardHTML() {
         }
         boxObject.onclick = function() { columnClicked(`${box.column}`); };
         if (box.piece){
-            boxObject.innerHTML = `${board.findIndex(box)}<div class="board-piece-${box.color}"></div>`;
+            boxObject.innerHTML = `<div class="board-piece-${box.color}"></div>`;
         }
         boardRoot.appendChild(boxObject);
     });
